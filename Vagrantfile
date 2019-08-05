@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
 		SHELL
 
   end #ending vm1 define
-  config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "data", "/vagrant_data"
 
 
   # Enable provisioning with a shell script. Additional provisioners such as
