@@ -6,4 +6,10 @@ This folder include vagrantfile. This vagrantfile is mainly used to generate two
 
 The synced folder will be at /vagrant. Both of the vm guests and host machine share this folder. 
 
-1. Y
+
+
+Quick guide to run vm:
+
+1. vagrant status 
+2. vagrant suspend/resume
+
