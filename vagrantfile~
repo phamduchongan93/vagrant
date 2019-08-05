@@ -11,7 +11,6 @@
 
 
  ### Only edit code from this point### 
-
 Vagrant.configure("2") do |config|
   config.vm.define "ubuntu-vm" do |vm1|
 	  	vm1.vm.hostname = "ubuntu-vm"
