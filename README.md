@@ -12,7 +12,9 @@ The synced folder will be at /vagrant. Both of the vm guests and host machine sh
 	vagrant up				To start the vms
 
 Quick guide to run vagrant vm:
+
 	vagrant status  [vmname] 		Displaying info of VM
+
 	vagrant suspend/resume [vmname] 	Suspend and resume VM
 	vagrant ssh [vmname]			SSh to your desired VM
 	CTRL+d 					To jump out of to VM.
