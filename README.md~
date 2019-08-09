@@ -4,7 +4,7 @@
 This folder include vagrantfile. This vagrantfile is mainly used to generate two vm for testinging. By default, these two vm are connected on subnet 192.168.33.0/24. These are two ubuntu vm, so the package management system is debian like.
 
 
-The synced folder will be at /vagrant_data. Both of the vm guests and host machine share this folder. At the host machine its the data folder file (refer to vagrantfile to know more). If you dont have the data file on your local repo, please genrate one by typing "mkdir data".
+The synced folder will be at /vagrant. Both of the vm guests and host machine share this folder. At the host machine its the data folder file (refer to vagrantfile to know more). If you dont have the data file on your local repo, please genrate one by typing "mkdir data".
 
 1. Check if you have data directory on your local working directory.
 2. Check if you have vagrantfile file for the vagrant to initiate. 
