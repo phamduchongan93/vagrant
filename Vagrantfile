@@ -56,7 +56,6 @@ Vagrant.configure("2") do |config|
 		vm2.vm.provision "shell", run: "always", inline: <<-SHELL
 			echo "This is Ubuntu vm 2"
 		SHELL
-		vm2.vm.provision "shell", path: "bootstrap.sh"
 
    end  # ending vm2 define
 end
