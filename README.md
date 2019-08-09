@@ -19,3 +19,17 @@ Quick guide to run vagrant vm:
 	vagrant ssh [vmname]			SSh to your desired VM
 	CTRL+d 					To jump out of to VM.
 
+
+
+## Bugs
+While editing file between windows and linux enviroment you may encounter this error 
+/bin/bash^M: bad interpreter: No such file or directory
+
+
+If so,
+
+run the bash script in /vagrant_data folder
+
+
+file_fix.sh [filename]
+
