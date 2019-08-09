@@ -28,15 +28,15 @@ if [ ! -w ect_backup.tgz ]
 then 
 	tar -cvzf "$tar_dir/etc_backup.tgz" /etc/*
 else
-	tar -rf "$tar_dir/etc_backup.tgz" /etc/*
+	tar -u "$tar_dir/etc_backup.tgz" /etc/*
 fi 
 
 
 if [ ! -w home_config.tgz ]
 then
-	tar -cvzf "$tar_dir/home_config.tgz" .bashrc
+	tar -cvzf "$tar_dir/home_config.tgz" "/home/$(whoami)/.*"
 else
-	tar -rf "$tar_dir/etc_backup.tgz" /etc/conf
+	tar -rf "$tar_dir/home_config.tgz" "/home/$(whoami)/.*"
 fi
 
 
@@ -53,13 +53,18 @@ result="`grep -i etc_backup.tgz /etc/crontab`"
 
 if [ "$result" = '' ]
 then
-	echo 'You did not add it at start up. Would you like to?'
-	PS3="Do you want to add the backup script to startup process?"
+	echo -e "\tYou did not add it at start up. Would you like to?\n"
+	PS3="\t Do you want to add the backup script to startup process? > "
 	select choice in yes no
 	do
 	case $choice in	
 		yes) 	
-			echo '@reboot  /bin/tar -cvzf etc_backup.tgz /etc/conf/' >> /etc/crontab
+			echo '@reboot  /bin/tar -cvzf etc_backup.tgz /etc/conf/ &' >> /etc/crontab
+			if [ "`echo $?`" = 0 ]
+			then 
+				You have been succesfully updated your cron file.
+			fi
+			break;
 			;;
 		no)
 			break;
@@ -71,7 +76,7 @@ then
 	esac
 	done
 else 
-	echo "You have already add the script to startup"
+	echo -e "\n\tYou have already add the script to startup"
 fi
 
 
