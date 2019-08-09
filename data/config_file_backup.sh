@@ -14,7 +14,7 @@ $port_num=''
 
 
 
-if whoami != root then 
+if "`whoami`" != root then 
 	echo "You need root privellege to run this script. You may do so by typing sudo prior to the command "
 
 
@@ -30,7 +30,7 @@ echo "Check if you have the startup file for the backup"
 #check if the crontab has the config backup
 
 result="grep -i etc_backup.tgz /etc/crontab"
-if [result='']
+if [ $result='' ]
 	echo 'You did not add it at start up. Would you like to?'
 	read answer
 
