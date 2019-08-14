@@ -23,7 +23,7 @@ Quick guide to run vagrant vm:
 	CTRL+d 					To jump out of to VM.
 
 ## Optional scripts
-In data folder, you should see some scripts, this scripts will help you to backup your config files of the VM. 
+In **data** folder, you should see some scripts, this scripts will help you to backup your config files of the VM. 
 
 
 ## Bugs
