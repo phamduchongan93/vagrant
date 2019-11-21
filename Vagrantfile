@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
  		# Adding shell privsioning
 		#
 		vm1.vm.provision "shell", run: "always", inline: <<-SHELL
-			echo "This is Ubuntu vm 1"
+			echo "This this the first VM (trusty64) "
 		SHELL
 
   end #ending vm1 define
@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
 		end # ending provider
  
 		vm2.vm.provision "shell", run: "always", inline: <<-SHELL
-			echo "This is Ubuntu vm 2"
+			echo "This is Ubuntu vm 2 (xenial64)"
 			apt-get update
 			apt-get install \
 			apt-transport-https \
@@ -69,6 +69,8 @@ Vagrant.configure("2") do |config|
    			stable"
 			apt-get update
 			apt-get install -y docker-ce 
+			groupadd docker
+			usermod -aG docker vagrant
 		SHELL
 
    end  # ending vm2 define
