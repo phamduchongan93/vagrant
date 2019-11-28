@@ -69,7 +69,6 @@ Vagrant.configure("2") do |config|
    			stable"
 			apt-get update
 			apt-get install -y docker-ce 
-			groupadd docker
 			usermod -aG docker vagrant
 		SHELL
 
