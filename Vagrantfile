@@ -14,7 +14,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.define "ubuntu-vm" do |vm1|
-	  	vm1.vm.hostname = "ubuntu-vm"
+  	vm1.vm.hostname = "ubuntu-vm"
 		vm1.vm.box = "ubuntu/trusty64"
 		vm1.vm.network "private_network", ip: "192.169.33.10"
 		# setting up provider
@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
   # Begin defining vm2
   #
    config.vm.define "ubuntu-vm2" do |vm2|
-	  	vm2.vm.hostname = "ubuntu-vm2"
+  	vm2.vm.hostname = "ubuntu-vm2"
 		vm2.vm.box = "ubuntu/xenial64"
 		vm2.vm.network "private_network", ip: "192.169.33.12"
 		# setting up provider
