@@ -20,14 +20,12 @@ Vagrant.configure("2") do |config|
 			 domain.cpus = 2
 			 domain.memory = 1024
 		end
-#		config.vm.provision "shell", path: "postinstall.sh"
-	end
+		config.vm.provision "shell", path: "centos-docker-install.sh"
+ 	end
 
-
-
-	config.vm.define "cent-02" do |config|
-		config.vm.hostname = "cent-02"
-		config.vm.box = "centos/7"
+	config.vm.define "ubuntu-01" do |config|
+		config.vm.hostname = "ubuntu-01"
+		config.vm.box = "generic/ubuntu1804"
 		#config.vm.box_check_update = false
 		config.vm.network "private_network", ip: "192.168.18.2"
 		config.vm.network :forwarded_port, guest: 22, host: 22 
@@ -35,8 +33,7 @@ Vagrant.configure("2") do |config|
 			 domain.cpus = 2
 			 domain.memory = 1024
 		end
-#		config.vm.provision "shell", path: "postinstall.sh"
-	end
 
-
+		config.vm.provision "shell", path: "ubuntu-docker-install.sh"
+ 	end  # ending vm2 define
 end

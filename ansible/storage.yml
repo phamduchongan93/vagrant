@@ -1,0 +1,4 @@
+- name: Gather the number of storage attacked to the VM 
+  shell: > 
+    virsh domblklist
+

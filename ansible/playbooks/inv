@@ -1,0 +1,12 @@
+[localhost]
+192.168.0.2
+192.168.1.248
+
+[cloud]
+107.152.36.127 
+
+[on-premise]
+backup-server ansible_host=127.0.0.1 ansible_ssh_pass=password
+
+[off-premise]
+kvm_cloud ansible_host=107.152.36.127 ansible_port=22
