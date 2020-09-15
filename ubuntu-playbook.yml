@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: true
+  become_method: sudo
   vars:
     create_containers: 4
     default_container_name: docker
@@ -32,15 +33,10 @@
       pip:
         name: docker
 
-    - name: Pull default Docker image
-      docker_image:
-        name: "{{ default_container_image }}"
-        source: pull
-
-    - name: Create default containers
-      docker_container:
-        name: "{{ default_container_name }}{{ item }}"
-        image: "{{ default_container_image }}"
-        command: "{{ default_container_command }}"
-        state: present
-      with_sequence: count={{ create_containers }}
+    - name: Create web image
+      docker_image: 
+        name: webimage
+        build:
+          path: /home/vagrant/docker
+          state: present 
+          state: build
