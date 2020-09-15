@@ -33,6 +33,7 @@ Vagrant.configure("2") do |config|
 			 domain.cpus = 2
 			 domain.memory = 1024
 		end
+  config.vm.synced_folder ".", "/home/vagrant/docker-project"
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ubuntu-playbook.yml"   
 		end

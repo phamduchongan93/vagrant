@@ -37,6 +37,6 @@
       docker_image: 
         name: webimage
         build:
-          path: /home/vagrant/docker
+          path: /home/vagrant/docker-project/docker-project
           state: present 
           state: build
