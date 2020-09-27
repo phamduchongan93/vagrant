@@ -1,0 +1,3 @@
+[submodule "javascript-audio-player"]
+	path = javascript-audio-player
+	url = https://github.com/codebubb/javascript-audio-player
