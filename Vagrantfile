@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
 			 domain.cpus = 2
 			 domain.memory = 1024
 		end
-		config.vm.provision "shell", path: "centos-docker-install.sh"
+#		config.vm.provision "shell", path: "centos-docker-install.sh"
  	end
 
 	config.vm.define "ubuntu-01" do |config|
@@ -33,7 +33,8 @@ Vagrant.configure("2") do |config|
 			 domain.cpus = 2
 			 domain.memory = 1024
 		end
-
-		config.vm.provision "shell", path: "ubuntu-docker-install.sh"
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ubuntu-playbook.yml"
+    end 
  	end  # ending vm2 define
 end
