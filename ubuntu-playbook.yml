@@ -20,31 +20,7 @@
         name: snap
         state: present 
 
-    - name: install microk8s via snap
-      command: snap install microk8s --classic
-
-    - name: install helm via snap
-      command: snap install helm --classic
-
-    - name: install kubectl
-      command: snap install kubectl --classic
-
-    - name: install microk8s addons
-      command: microk8s enable helm
-    
-    - name: microk8s enable storage
-      command: microk8s enable storage
-
-    - name: microk8s enable dns
-      command: microk8s enable dns
-
-    - name: microk8s enable ingress
-      command: microk8s enable ingress
-
-    - name: microk8s enable registry
-      command: microk8s enable registry
-
-    - name: Add Docker GPG apt Key
+   - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
