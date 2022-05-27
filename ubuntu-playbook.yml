@@ -15,6 +15,35 @@
       apt: name={{ item }} state=latest update_cache=yes
       loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
 
+    - name: Install snap
+      apt: 
+        name: snap
+        state: present 
+
+    - name: install microk8s via snap
+      command: snap install microk8s --classic
+
+    - name: install helm via snap
+      command: snap install helm --classic
+
+    - name: install kubectl
+      command: snap install kubectl --classic
+
+    - name: install microk8s addons
+      command: microk8s enable helm
+    
+    - name: microk8s enable storage
+      command: microk8s enable storage
+
+    - name: microk8s enable dns
+      command: microk8s enable dns
+
+    - name: microk8s enable ingress
+      command: microk8s enable ingress
+
+    - name: microk8s enable registry
+      command: microk8s enable registry
+
     - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
@@ -31,6 +60,14 @@
     - name: Install Docker Module for Python
       pip:
         name: docker
+        
+    - name: Add user
+      ansible.builtin.user:
+        name: vagrant
+        shell: /bin/bash
+        groups: docker,microk8s
+        state: present
+        append: yes
 
     - name: Pull default Docker image
       docker_image:
@@ -44,3 +81,4 @@
         command: "{{ default_container_command }}"
         state: present
       with_sequence: count={{ create_containers }}
+

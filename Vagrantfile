@@ -26,14 +26,18 @@ Vagrant.configure("2") do |config|
 	config.vm.define "ubuntu-01" do |config|
 		config.vm.hostname = "ubuntu-01"
 		config.vm.box = "generic/ubuntu1804"
-		#config.vm.box_check_update = false
+		config.vm.box_check_update = false
 		config.vm.network "private_network", ip: "192.168.18.2"
 		config.vm.network :forwarded_port, guest: 22, host: 22 
+		config.vm.network :forwarded_port, guest: 8001, host: 8001
+                config.vm.network :forwarded_port, guest: 30872, host: 30872
+                config.vm.network :forwarded_port, guest: 10443, host: 10443
 		config.vm.provider :libvirt do |domain|
-			 domain.cpus = 2
-			 domain.memory = 1024
+			 domain.cpus = 4
+			 domain.memory = 2048
 		end
     config.vm.provision "ansible" do |ansible|
+      ansible.verbose = "v"
       ansible.playbook = "ubuntu-playbook.yml"
     end 
  	end  # ending vm2 define
