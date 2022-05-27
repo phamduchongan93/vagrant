@@ -1,0 +1,32 @@
+# Prepare system for operational use
+
+- hosts: cloud 
+  user: anpham
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: install webserives
+      debugger: on_failed
+      ignore_errors: True
+      yum:
+        name: nginx
+        state: latest
+    - name: send out config and reboot nginx
+
+    - name: libvirt packages
+      yum:
+        name: libvirt-nss
+        state: latest
+    - name: install libvirt packages with apt
+      apt:
+        name: libvirt-nss
+        debugger: on_failed
+        ignore_errors: True
+        state: present
+    - name: net work tools
+      yum: 
+        name: bind-utils
+        state: latest
+
+    
+    

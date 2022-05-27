@@ -1,0 +1,7 @@
+- name: Create web image
+  hosts: dockerhost
+  tasks:
+   - name: pull image
+     docker_image: 
+       name: centos
+       source: pull

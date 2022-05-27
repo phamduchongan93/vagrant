@@ -1,0 +1,17 @@
+- name: pull centos image
+  hosts: localhost
+  tasks:
+   - name: pulling base image
+     docker_image:
+       name: node
+       source: pull
+   - name: 
+
+
+   - name: launch container
+     images: node
+     state: started
+     ports: 
+     - "8080:80"
+     tty: true
+     detach: true 
