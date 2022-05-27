@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
 #		config.vm.provision "shell", path: "centos-docker-install.sh"
  	end
 
-	config.vm.define "ubuntu-01" do |config|
-		config.vm.hostname = "ubuntu-01"
+	config.vm.define "ubuntu-microk8s" do |config|
+		config.vm.hostname = "ubuntu-microk8s"
 		config.vm.box = "generic/ubuntu1804"
 		config.vm.box_check_update = false
 		config.vm.network "private_network", ip: "192.168.18.2"
