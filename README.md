@@ -5,3 +5,4 @@
 - 192.168.18.0/24 subnet
 - microk8s
 - docker service
+
