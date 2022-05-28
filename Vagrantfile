@@ -5,9 +5,12 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-#
-ENV['VAGRANT_DEFAULT_PROVIDER'] = 'libvirt'
+  # boxes at https://vagrantcloud.com/search.
+ 
 
+
+
+ ### Only edit code from this point### 
 
 Vagrant.configure("2") do |config|
 	config.vm.define "cent-01" do |config|
@@ -23,8 +26,8 @@ Vagrant.configure("2") do |config|
 #		config.vm.provision "shell", path: "centos-docker-install.sh"
  	end
 
-	config.vm.define "ubuntu-microk8s" do |config|
-		config.vm.hostname = "ubuntu-microk8s"
+	config.vm.define "ubuntu-docker" do |config|
+		config.vm.hostname = "ubuntu-docker"
 		config.vm.box = "generic/ubuntu1804"
 		config.vm.box_check_update = false
 		config.vm.network "private_network", ip: "192.168.18.2"
@@ -41,4 +44,5 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "ubuntu-playbook.yml"
     end 
  	end  # ending vm2 define
+
 end
